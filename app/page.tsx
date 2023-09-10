@@ -1,34 +1,26 @@
 'use client'
-import { Provider } from 'react-redux'
+
 import Button from './components/button/Button'
-import Content from './components/tab/Content'
-import Contents from './components/tab/Contents'
-import Head from './components/tab/Head'
-import Header from './components/tab/Header'
-import Tab from './components/tab/Tab'
-import store from './stores/store'
+import HorizontalTab from './components/tab/HorizontalTab'
+import VerticalTab from './components/tab/VerticalTab'
 
 export default function Home() {
   const buttonClick = () => {
     console.log("Button Clicked!")
   }
   return (
-    <Provider store={store}>
-      <main className="flex min-h-screen flex-col items-center justify-between p-24 text-black">
-        <Button onClickFunction={buttonClick} label="Enter" />
-        <Tab>
-          <Header>
-            <Head label="Head 1" tabIndex={1} />
-            <Head label="Head 2" tabIndex={2} />
-            <Head label="Head 3" tabIndex={3} />
-          </Header>
-          <Contents>
-            <Content content="Content 1" />
-            <Content content="Content 2" />
-            <Content content="Content 3" />
-          </Contents>
-        </Tab>
-      </main>
-    </Provider>
+    <main className="flex min-h-screen flex-col items-center justify-between p-24 text-black">
+      <Button onClickFunction={buttonClick} label="Enter" />
+      <HorizontalTab tabs={[
+        {header: "First", content: "This is the first item"},
+        {header: "Second", content: "This is the second item"},
+        {header: "Third", content: "This is the third item"}
+      ]}/>
+      <VerticalTab tabs={[
+        {header: "First", content: "This is the first item"},
+        {header: "Second", content: "This is the second item"},
+        {header: "Third", content: "This is the third item"}
+      ]}/>
+    </main>
   )
 }
