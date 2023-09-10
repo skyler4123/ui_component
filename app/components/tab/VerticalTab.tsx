@@ -10,7 +10,7 @@ interface VerticalTabType {
   contentsClass?: string,
   contentClass?: string
 }
-const initHeaderClass = "flex flex-row gap-x-3"
+const initHeaderClass = "flex flex-col gap-x-3"
 const initHeadClass = "text-red-500"
 const initContentsClass = "flex flex-col gap-y-2 text-green-900"
 const initContentClass = "hidden"
