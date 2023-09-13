@@ -1,13 +1,12 @@
 'use client'
 
-import { useRef } from "react";
+import { useEffect, useRef } from "react";
 
 const Modal = () => {
   const modalRef: any = useRef()
-  const modalElement: HTMLElement = modalRef.current!
-
   const closeModal = () => {
-    if (modalElement) modalElement.classList.add('hidden')
+    const modalElement: HTMLElement = modalRef.current!
+    if (modalElement) { modalElement.classList.add('hidden') }
   }
 
   return (
