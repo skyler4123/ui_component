@@ -6,6 +6,9 @@ import Modal from './components/modal/Modal'
 import HorizontalTab from './components/tab/HorizontalTab'
 import VerticalTab from './components/tab/VerticalTab'
 import { GetStaticProps } from 'next'
+import Summary from './components/react/Summary'
+import ProgressBar from './components/progress/ProgressBar'
+
 
 export default function Home() {
   const buttonClick = () => {
@@ -18,8 +21,8 @@ export default function Home() {
   // console.log(fetchDate())
   return (
     <main className="flex min-h-screen flex-col items-center justify-between text-black">
-      <Modal />
       <Button onClickFunction={buttonClick} label="Enter" />
+      <Summary rates={[100, 100, 200, 200, 400]}/>
       <HorizontalTab tabs={[
         {header: "First", content: "This is the first item"},
         {header: "Second", content: "This is the second item"},
