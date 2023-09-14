@@ -6,8 +6,8 @@ import Modal from './components/modal/Modal'
 import HorizontalTab from './components/tab/HorizontalTab'
 import VerticalTab from './components/tab/VerticalTab'
 import { GetStaticProps } from 'next'
-import Summary from './components/react/Summary'
 import ProgressBar from './components/progress/ProgressBar'
+import RatingSummary from './components/react/RatingSummary'
 
 
 export default function Home() {
@@ -22,7 +22,7 @@ export default function Home() {
   return (
     <main className="flex min-h-screen flex-col items-center justify-between text-black">
       <Button onClickFunction={buttonClick} label="Enter" />
-      <Summary rates={[100, 100, 200, 200, 400]}/>
+      <RatingSummary rates={[100, 100, 200, 200, 400]}/>
       <HorizontalTab tabs={[
         {header: "First", content: "This is the first item"},
         {header: "Second", content: "This is the second item"},
