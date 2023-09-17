@@ -1,38 +1,16 @@
 'use client'
 
-import axios from 'axios'
-import Button from './components/button/Button'
-import Modal from './components/modal/Modal'
-import HorizontalTab from './components/tab/HorizontalTab'
-import VerticalTab from './components/tab/VerticalTab'
-import { GetStaticProps } from 'next'
-import ProgressBar from './components/progress/ProgressBar'
-import RatingSummary from './components/react/RatingSummary'
+import { QueryClient, QueryClientProvider, useQuery } from 'react-query'
+import HomePage from './pages/home/page'
 
 
 export default function Home() {
-  const buttonClick = () => {
-    console.log("Button Clicked!")
-  }
-  // const fetchDate: GetStaticProps = async (context) => {
-  //   const response = await axios.get('https://jsonplaceholder.typicode.com/todos')
-  //   console.log(response.data)
-  // }
-  // console.log(fetchDate())
+  const queryClient = new QueryClient()
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between text-black">
-      <Button onClickFunction={buttonClick} label="Enter" />
-      <RatingSummary rates={[100, 100, 200, 200, 400]}/>
-      <HorizontalTab tabs={[
-        {header: "First", content: "This is the first item"},
-        {header: "Second", content: "This is the second item"},
-        {header: "Third", content: "This is the third item"}
-      ]}/>
-      <VerticalTab tabs={[
-        {header: "First", content: "This is the first item"},
-        {header: "Second", content: "This is the second item"},
-        {header: "Third", content: "This is the third item"}
-      ]}/>
-    </main>
+    <QueryClientProvider client={queryClient}>
+      <main className="flex min-h-screen flex-col items-center justify-between text-black">
+        <HomePage />
+      </main>
+    </QueryClientProvider>
   )
 }
