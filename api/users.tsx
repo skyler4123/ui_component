@@ -5,7 +5,7 @@ export const getUsers = async () => {
   return response.data
 }
 
-export const getUser = async (id) => {
+export const getUser = async (id: number) => {
   const response = await axios.get(`https://jsonplaceholder.typicode.com/users/${id}`)
   return response.data
 }
